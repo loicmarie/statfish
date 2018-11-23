@@ -4,7 +4,8 @@
   "description": "StatFish is a UCI module wrapping StockFish, that will play first moves according to human opening usage statistics, allowing players to train against the most frequent openings.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir -p bin && ./node_modules/nexe/index.js index.js -o bin/statfish"
   },
   "repository": {
     "type": "git",
