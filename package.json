@@ -1,0 +1,34 @@
+{
+  "name": "statfish",
+  "version": "1.0.0",
+  "description": "StatFish is a UCI module wrapping StockFish, that will play first moves according to human opening usage statistics, allowing players to train against the most frequent openings.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loicmarie/statfish.git"
+  },
+  "keywords": [
+    "chess",
+    "uci",
+    "module",
+    "stockfish",
+    "statistics",
+    "opening",
+    "explorer",
+    "engine"
+  ],
+  "author": "Loïc Marie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loicmarie/statfish/issues"
+  },
+  "homepage": "https://github.com/loicmarie/statfish#readme",
+  "dependencies": {
+    "lichess-opening-explorer": "^1.0.1",
+    "nexe": "^2.0.0-rc.34",
+    "uci-parser": "^1.0.0"
+  }
+}
