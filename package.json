@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/loicmarie/statfish#readme",
   "dependencies": {
+    "chess.js": "^0.10.2",
     "lichess-opening-explorer": "^1.0.1",
     "nexe": "^2.0.0-rc.34",
     "uci-parser": "^1.0.0"
