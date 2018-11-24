@@ -41,10 +41,8 @@ uci.on('isready', opts => {
 
 uci.on('position', opts => {
   chess = new Chess(opts.fen);
-  console.log('POS', opts.fen);
   for (let move of opts.moves)
     chess.move(move, {sloppy: true});
-  console.log('AFT', chess.fen());
 });
 
 uci.on('go', opts => {
