@@ -41,8 +41,10 @@ uci.on('isready', opts => {
 
 uci.on('position', opts => {
   chess = new Chess(opts.fen);
+  console.log('POS', opts.fen);
   for (let move of opts.moves)
     chess.move(move, {sloppy: true});
+  console.log('AFT', chess.fen());
 });
 
 uci.on('go', opts => {
@@ -55,7 +57,8 @@ uci.on('go', opts => {
     })
     .then(res => {
       if (res.moves.length == 0) {
-        stockfish.postMessage('position', chess.fen());
+        stockfish.postMessage('ucinewgame');
+        stockfish.postMessage(`position fen ${chess.fen()}`);
         stockfish.postMessage('go depth 15');
       } else {
         let nbTotGames = res.white + res.draws + res.black;
