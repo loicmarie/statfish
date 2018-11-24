@@ -56,8 +56,9 @@ uci.on('go', opts => {
     .then(res => {
       if (res.moves.length == 0) {
         stockfish.postMessage('ucinewgame');
+        stockfish.postMessage('setoption name Skill Level value 2');
         stockfish.postMessage(`position fen ${chess.fen()}`);
-        stockfish.postMessage('go depth 15');
+        stockfish.postMessage('go wtime 1000 btime 1000');
       } else {
         let nbTotGames = res.white + res.draws + res.black;
         let nbTotGamesTest = 0;
