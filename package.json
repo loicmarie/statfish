@@ -31,6 +31,7 @@
     "chess.js": "^0.10.2",
     "lichess-opening-explorer": "^1.0.1",
     "nexe": "^2.0.0-rc.34",
+    "stockfish": "^8.0.0",
     "uci-parser": "^1.0.0"
   }
 }

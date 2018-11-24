@@ -2,10 +2,18 @@
 const LichessOpeningExplorer = require('lichess-opening-explorer');
 const UCIParser = require('uci-parser');
 const Chess = require('chess.js').Chess;
+const StockFish = require('stockfish');
 
 let explorer = new LichessOpeningExplorer();
 let uci = new UCIParser();
 let chess = new Chess();
+let stockfish = new StockFish();
+
+stockfish.onmessage = event => {
+  let cmd = event.split(' ')[0];
+  if (cmd == 'bestmove')
+    console.log(event);
+};
 
 let getRandomMove = () => {
   let moves = chess.moves({verbose: true});
@@ -47,7 +55,8 @@ uci.on('go', opts => {
     })
     .then(res => {
       if (res.moves.length == 0) {
-        moveUCI = getRandomMove();
+        stockfish.postMessage('position', chess.fen());
+        stockfish.postMessage('go depth 15');
       } else {
         let nbTotGames = res.white + res.draws + res.black;
         let nbTotGamesTest = 0;
@@ -63,8 +72,8 @@ uci.on('go', opts => {
           }
           nbTotGamesTest -= nbGames;
         }
+        console.log('bestmove', moveUCI);
       }
-      console.log('bestmove', moveUCI);
     });
 });
 
